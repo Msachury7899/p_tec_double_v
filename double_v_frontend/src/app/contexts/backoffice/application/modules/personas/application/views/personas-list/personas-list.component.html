@@ -1,0 +1,52 @@
+<div class="d-flex mx-4 mt-4 custom-card">
+  <div class="d-flex py-3 px-4">
+    <div class="d-flex">
+      <p class="mb-1">Personas | Lista</p>
+    </div>
+  </div>
+</div>
+
+
+<div class=" mx-4 mt-4 custom-card">
+  <div class="table-responsive mat-elevation-z1">
+    <mat-paginator (page)="setPage($event)" [pageIndex]="personasTable$.page" [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]" [length]="personasTable$.totalRows">
+    </mat-paginator>
+    <table mat-table [dataSource]="personasTable$" class="w-100">
+
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="login">
+        <th mat-header-cell *matHeaderCellDef> Login </th>
+        <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="identificacion">
+        <th mat-header-cell *matHeaderCellDef> Identificación </th>
+        <td mat-cell *matCellDef="let element"> {{element.identificacion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombres">
+        <th mat-header-cell *matHeaderCellDef> Nombres </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</div>
+
+
+

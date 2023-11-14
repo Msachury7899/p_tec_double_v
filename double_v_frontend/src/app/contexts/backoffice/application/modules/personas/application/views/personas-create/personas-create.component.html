@@ -1,0 +1,67 @@
+<div class="d-flex mx-4 mt-4 custom-card">
+  <div class="d-flex py-3 px-4">
+    <div class="d-flex">
+      <p class="mb-1">Personas | Crear</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="row my-5  mx-4">
+  <div class="col-8 mx-auto">
+    <form [formGroup]="form">
+    <div class="card custom-card">
+      <div class="card-body">
+          <h3>Datos Sesión</h3>
+          <hr />
+          <div class="row g-3 mt-2 p-3">
+            <div class="col">
+              <label class="form-label">Login</label>
+              <input formControlName="login" type="text" class="form-control">
+            </div>
+            <div class="col">
+              <label class="form-label">Contraseña</label>
+              <input formControlName="password" type="password" class="form-control">
+            </div>
+          </div>
+          <h3 class="mt-2">Datos Personales</h3>
+          <hr />
+          <div class="mt-2 p-3">
+            <div class="row g-3 ">
+              <div class="col">
+                <label class="form-label" for="">Email</label>
+                <input formControlName="email" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label class="form-label" for="">Nombres</label>
+                <input formControlName="nombres" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label class="form-label" for="">Apellidos</label>
+                <input formControlName="apellidos" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row g-3 mt-2">
+              <div class="col">
+                <label class="form-label" for="">Tipo Identificacion</label>
+                <select formControlName="tipo_identificacion" type="text" class="form-control">
+                  <option disabled value="-1" selected>Seleccionar</option>
+                  @for (tipo of tiposIdentificacion$ | async; track $index) {
+                    <option [value]="tipo.id">{{tipo.nombre_tipo}}</option>
+                  }
+                </select>
+              </div>
+              <div class="col">
+                <label class="form-label" for="">Identificacion</label>
+                <input formControlName="identificacion" type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <button [disabled]="form.invalid" (click)="sendForm()" class="btn btn-primary">Crear Usuario</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

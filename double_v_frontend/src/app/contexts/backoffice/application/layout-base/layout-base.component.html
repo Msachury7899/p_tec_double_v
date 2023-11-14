@@ -1,0 +1,31 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nav class="navbar bg-primary navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">Bienvenido - Frontend Double V</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-white" (click)="navegarPanel()" >Inicio</a>
+        </li>
+      </ul>
+      <span (click)="cerrarSesion()" class="navbar-text text-white pointer">
+        Cerrar Sesión
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+
